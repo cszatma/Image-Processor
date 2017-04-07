@@ -14,15 +14,11 @@ public class feedforward {
 		
 		BufferedImage img = null;
 		try {
-			img = ImageIO.read(new File("numbers/" + args[0])); //UNCOMMENT WHEN IMPLEMENTING
-			//img = ImageIO.read(new File("src/numbers/0.png"));
+			img = ImageIO.read(new File("numbers/" + args[0]));
 		} catch (IOException e) {
 			System.out.println("ERROR: Image file not found, please ensure the proper pathname was given");
 			return;
 		}
-		
-		//double[][] hiddenWeights = readInNumbers("src/hidden-weights.txt", 300, 785); //Get hidden weights
-		//double[][] outputWeights = readInNumbers("src/output-weights.txt", 10, 301); //Get output weights
 				
 		double[][] hiddenWeights = readInNumbers("hidden-weights.txt", 300, 785); //Get hidden weights
 		double[][] outputWeights = readInNumbers("output-weights.txt", 10, 301); //Get output weights
@@ -30,12 +26,6 @@ public class feedforward {
 		//Get Pixel Data
 		double[] dummy = null;
 		double[] x = img.getData().getPixels(0, 0, img.getWidth(), img.getHeight(), dummy); //Get all the pixels from img
-		
-//		for (int i = 0; i < x.length; i++) {
-//			if (x[i] != 0) {
-//				System.out.println(x[i]);
-//			}
-//		}
 		
 		//Rescale pixels to range between 0 to 1
 		for (int i = 0; i < x.length; i++) {
